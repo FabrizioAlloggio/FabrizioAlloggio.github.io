@@ -4,70 +4,61 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Portfolio | Fabrizio Alloggio</title>
-  <style>
-    body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#0e1015;color:#f0f0f0;line-height:1.6}
-    header{padding:60px 20px;text-align:center;background:linear-gradient(135deg,#202630,#111);}
-    header h1{margin:0;font-size:2.2rem}
-    header p{max-width:600px;margin:10px auto;color:#aaa}
-    main{max-width:900px;margin:40px auto;padding:0 20px}
-    section{margin-bottom:60px}
-    h2{font-size:1.5rem;margin-bottom:10px;color:#ff9868}
-    .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-    .card{background:#171b24;padding:16px;border-radius:10px;border:1px solid #222}
-    footer{text-align:center;color:#777;padding:30px 10px;border-top:1px solid #222;font-size:0.9rem}
-    a{color:#ff9868;text-decoration:none}
-    a:hover{text-decoration:underline}
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>Portfolio – Fabrizio Alloggio</h1>
-    <p>Ik ben Fabrizio en ik heb altijd al gehouden van story games.  
-    Geïnspireerd door <strong>Life is Strange</strong> en <strong>Genshin Impact</strong> wil ik een game author worden die mensen een andere kijk op het leven geeft – op een inspirerende, meelevende maar ook gutwrenching manier.</p>
+    <div class="header-content">
+      <div class="profile">
+        <img src="images/Profielfoto.JPEG" alt="Profielfoto Fabrizio Alloggio" class="profile-pic">
+        <div class="intro">
+          <h1>Fabrizio Alloggio</h1>
+          <p>Game Author in ontwikkeling — geïnspireerd door <strong>Life is Strange</strong> en <strong>Genshin Impact</strong>.</p>
+        </div>
+      </div>
+      <nav>
+        <a href="#storyline">Storyline Crafting</a>
+        <a href="#arcade">Arcade Game</a>
+        <a href="#narratief">Narratief Project</a>
+        <a href="#provocatief">Provocatief Object</a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <section>
-      <h2>Mijn Doel</h2>
-      <p>“Ik wil een game author zijn die mensen een andere kijk op het leven geeft op een inspirerende, meelevende, maar gutwrenching manier.”</p>
+    <section id="intro" class="highlight">
+      <h2>Over mij</h2>
+      <p>Ik ben Fabrizio en ik heb altijd al gehouden van story games.  
+      Door games zoals <em>Life is Strange</em> en <em>Genshin Impact</em> ben ik geïnspireerd geraakt om verhalen te schrijven die spelers raken, inspireren en aan het denken zetten.</p>
     </section>
 
-    <section>
-      <h2>Game Inspiraties</h2>
-      <ul>
-        <li>Life is Strange</li>
-        <li>Genshin Impact</li>
-      </ul>
-    </section>
-
-    <section>
+    <section id="storyline">
       <h2>Storyline Crafting</h2>
-      <p>In mijn vrije tijd heb ik samen met mijn broer gewerkt aan een eigen game op Roblox. Ik ontwierp zelf de storyline, abilities en wereld, met inspiratie uit verschillende games en mijn eigen verbeelding.</p>
-      <div class="grid">
-        <div class="card"><h3>Worldbuilding & Lore</h3><p>Gebruik van creativiteit en inlevingsvermogen om een origineel verhaal op te bouwen.</p></div>
-        <div class="card"><h3>Ability Design</h3><p>Zelfbedachte vaardigheden en gameplayconcepten met visuele elementen.</p></div>
-        <div class="card"><h3>Early Stage Game</h3><p>Screenshot van de vroege fase van de game in Roblox Studio.</p></div>
-      </div>
+      <p>In mijn vrije tijd heb ik samen met mijn broer gewerkt aan een eigen game in Roblox.  
+      Ik ontwierp zelf de storyline, abilities en wereld, met inspiratie uit andere games en mijn eigen verbeelding.</p>
     </section>
 
-    <section>
-      <h2>Arcade Game Project</h2>
-      <p>Tijdens mijn eerste jaar op CMD maakte ik een Flappy Bird-achtige game in Unity met een Arduino als joystickcontroller. Het verhaal: een vogel zoekt appels laag bij de grond en ontwijkt obstakels.</p>
+    <section id="arcade">
+      <h2>Arcade Game</h2>
+      <p>Tijdens mijn eerste jaar op CMD maakte ik een Flappy Bird-achtige game in Unity met een Arduino als joystickcontroller.  
+      De speler bestuurt een vogel die appels zoekt terwijl hij obstakels ontwijkt.</p>
     </section>
 
-    <section>
+    <section id="narratief">
       <h2>Narratief Project</h2>
-      <p>Bij Media Design 2 maakte ik met mijn groep een video die de emotie <em>obsessie</em> overbracht door middel van beeldtaal. Ik werkte met professionele camera’s, storyboard en sounddesign om de emotie kracht bij te zetten.</p>
+      <p>Voor het vak Media Design 2 maakte ik met mijn groep een korte video die de emotie <em>obsessie</em> moest overbrengen.  
+      We gebruikten shots, montage en sounddesign om de sfeer en emotie krachtig over te brengen.</p>
     </section>
 
-    <section>
+    <section id="provocatief">
       <h2>Het Provocatieve Object</h2>
-      <p>Voor Discursive Design gaf ik een roos een nieuwe betekenis: een symbool voor de onderdrukking van de LHBTI+ gemeenschap in Amerika. Met Blender paste ik het model aan om mijn verhaal visueel te versterken.</p>
+      <p>Voor Discursive Design gaf ik een roos een nieuwe betekenis: een symbool voor de onderdrukking van de LHBTI+ gemeenschap in Amerika.  
+      Met Blender paste ik het model aan om mijn verhaal visueel te versterken.</p>
     </section>
   </main>
 
   <footer>
-    © 2025 Fabrizio Alloggio – Portfolio gemaakt voor GitHub Pages
+    © 2025 Fabrizio Alloggio — Portfolio
   </footer>
 </body>
 </html>
