@@ -64,6 +64,20 @@ footer {
     padding: 20px;
 }
 
-lore {
-    align: right;
+#lore {
+    text-align: right;        /* alles rechts uitlijnen */
+    margin: 20px 0;
+}
+
+#lore img {
+    width: 200px;             /* pas aan hoe groot je wilt */
+    height: auto;
+    border: 2px solid #FF7F50; /* optioneel: outline */
+    border-radius: 5px;       /* optioneel: afgeronde hoeken */
+}
+
+#lore figcaption {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 5px;
 }
