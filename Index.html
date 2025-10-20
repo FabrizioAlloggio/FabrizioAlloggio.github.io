@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Testsite — Mijn demo</title>
+  <meta name="description" content="Eenvoudige testsite voor GitHub Pages of lokaal testen.">
+  <style>
+    :root{
+      --bg:#0f1724; --card:#111827; --accent:#ff8a65; --muted:#9aa4b2;
+      --glass: rgba(255,255,255,0.03);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0; background:linear-gradient(180deg,var(--bg),#071027); color:#e6eef8; -webkit-font-smoothing:antialiased}
+    .wrap{max-width:960px;margin:32px auto;padding:20px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#ffb88c);display:flex;align-items:center;justify-content:center;font-weight:700;color:#102;box-shadow:0 6px 18px rgba(0,0,0,.5)}
+    nav a{color:var(--muted);text-decoration:none;margin-left:14px;font-size:0.95rem}
+    .hero{margin-top:28px;padding:28px;background:var(--glass);border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,.6)}
+    h1{margin:0;font-size:1.8rem}
+    p.lead{color:var(--muted);margin-top:8px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:18px}
+    .card{background:var(--card);padding:14px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+    .btn{display:inline-block;padding:8px 12px;border-radius:8px;background:var(--accent);color:#092; text-decoration:none;font-weight:600}
+    footer{margin-top:26px;color:var(--muted);font-size:0.9rem;text-align:center;padding:18px}
+    @media (max-width:520px){header{flex-direction:column;align-items:flex-start} nav{margin-top:8px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">A</div>
+        <div>
+          <div style="font-weight:700">Mijn Testsite</div>
+          <div style="color:var(--muted);font-size:0.85rem">Kleine demo voor GitHub Pages</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">Over</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="about">
+      <h1>Welkom — dit is een snelle testpagina</h1>
+      <p class="lead">Gebruik deze pagina om te verifiëren dat je site online staat (lokaal of via GitHub Pages). Hieronder vind je voorbeeldkaarten en een knop die iets dynamisch doet.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Statische site</h3>
+          <p style="color:var(--muted)">Perfect voor portfolio's, documentatie of kleine presentaties.</p>
+          <a class="btn" href="#projects">Bekijk</a>
+        </div>
+        <div class="card">
+          <h3>Responsive</h3>
+          <p style="color:var(--muted)">Past zich automatisch aan mobiel en desktop aan.</p>
+        </div>
+        <div class="card">
+          <h3>Snel & veilig</h3>
+          <p style="color:var(--muted)">Wanneer gehost op GitHub Pages krijg je automatisch HTTPS.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid" id="projects" style="margin-top:20px">
+      <div class="card">
+        <h4>Project A</h4>
+        <p style="color:var(--muted)">Korte omschrijving van project A.</p>
+      </div>
+      <div class="card">
+        <h4>Project B</h4>
+        <p style="color:var(--muted)">Korte omschrijving van project B.</p>
+      </div>
+      <div class="card" id="dynamicCard">
+        <h4>Interactief</h4>
+        <p style="color:var(--muted)">Druk op de knop om de tekst te veranderen.</p>
+        <button class="btn" onclick="makeChange()">Klik mij</button>
+      </div>
+    </section>
+
+    <footer id="contact">
+      <div>© <span id="year"></span> — Testsite. <span style="color:var(--muted)">Open lokaal of deploy naar GitHub Pages.</span></div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function makeChange(){
+      const c = document.getElementById('dynamicCard');
+      c.querySelector('p').textContent = 'Je hebt op de knop gedrukt — nice! Deze actie is lokaal en veilig.';
+      c.style.border = '1px solid rgba(255,138,101,0.25)';
+    }
+  </script>
+</body>
+</html>
