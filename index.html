@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Fabrizio Alloggio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Fabrizio Alloggio</title>
+  <link rel="stylesheet" href="style.css">
+  
 </head>
-<body>
+<body class="home">
     <header>
         <div class="logo">
             <img src="images/Profielfoto.JPEG" alt="Profielfoto Fabrizio">
@@ -23,22 +24,35 @@
             </ul>
         </nav>
     </header>
-
     <main>
         <section id="intro">
             <h2>Welkom op mijn portfolio website.</h2>
-            <div id="Tekst"><p>Ik ben Fabrizio, ik ben 19 jaar en ik heb altijd al gehouden van story games. Ik
-ben geïnspireerd door games, zoals Life is Strange en Genshin
-Impact. Vanwege o.a. deze games wil ik een game author zijn
-die mensen een andere kijk op het leven geeft op een
-inspirerende, meelevende, maar gutwrenching manier door
-middel van mijn verhalen</p>
-</div>
+            <div class="project-row">
+                <div id="Tekst" class="project-text"><p>Ik ben Fabrizio, ik ben 19 jaar en ik heb altijd al gehouden van story games. Ik ben geïnspireerd door games, zoals Life is Strange en Genshin Impact. Vanwege o.a. deze games wil ik een game author zijn die mensen een andere kijk op het leven geeft op een inspirerende, meelevende, maar gutwrenching manier door middel van mijn verhalen</p></div>
+
+                <div class="side-polaroids tight">
+                    <div class="Signeer polaroid">
+                        <img src="images/Signeer.jpg" alt="Signeer">
+                        <figcaption>Ik die mijn propedeuse ondertekent.</figcaption>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer>
         <p>© 2025 Fabrizio Alloggio | Contact: fabrizioalloggio@icloud.com</p>
     </footer>
+    <!-- Lightbox markup (used by lightbox.js) -->
+    <div id="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="lightbox-overlay" id="lightboxOverlay"></div>
+        <div class="lightbox-content" role="document">
+            <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+            <img id="lightboxImage" src="" alt="">
+            <div id="lightboxCaption"></div>
+        </div>
+    </div>
+
+    <script src="lightbox.js"></script>
 </body>
 </html>

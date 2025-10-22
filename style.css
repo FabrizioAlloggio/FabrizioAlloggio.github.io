@@ -36,7 +36,7 @@ nav ul {
     padding: 0;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 0; /* separators added via CSS, use spacing on anchors */
     margin-top: 15px;
 }
 
@@ -45,10 +45,39 @@ nav a {
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
+
+    /* nicer pill-like links */
+    padding: 6px 10px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.06);
+    transition: background-color 180ms ease, color 180ms ease;
 }
 
 nav a:hover {
     color: #c79f41;
+}
+
+/* Use list-item separators (vertical bar) between nav items */
+nav ul li {
+    display: inline-block;
+}
+nav ul li:not(:last-child)::after {
+    content: "|";
+    margin: 0 12px;
+    color: rgba(51,36,18,0.6);
+    font-weight: 700;
+}
+
+/* Hover gives subtle background so the separators read nicely */
+nav ul li a:hover {
+    background: rgba(255,255,255,0.14);
+}
+
+/* On small screens remove separators and make nav stacked */
+@media (max-width: 700px) {
+    nav ul li:not(:last-child)::after { content: ""; }
+    nav ul { gap: 10px; }
+    nav a { padding: 10px 12px; }
 }
 
 main {
@@ -76,7 +105,9 @@ main {
     /* Optioneel: letterkleur en -grootte */
     color: #333;
     font-family: sans-serif;
-    line-height: 1.5;
+    line-height: 1.7;
+    font-weight: 700; /* match project page text weight */
+    font-size: 1rem;
 }
 
 /* Apply the same homepage text styling to the project page text */
@@ -104,13 +135,13 @@ footer {
 /* Polaroid base styles (reusable) */
 .polaroid {
     background: #fff8e6;              /* slightly warm/yellow polaroid frame */
-    padding: 6px 6px 10px;            /* tighter frame so white isn't too large */
+    padding: 12px 12px 14px;          /* larger padding so frame extends under image and caption */
     border-radius: 4px;
     border: 1px solid #eee;
     box-shadow: 0 8px 14px rgba(0,0,0,0.28);
     text-align: center;
     margin: 0 0 1rem 1rem;            /* restore original left spacing so standalone polaroids offset like Storyline Crafting */
-    max-width: 300px;                 /* frame width */
+    max-width: 320px;                 /* frame width */
     flex: 0 0 auto;                   /* let width be controlled by container, don't force a flex-basis */
     transform: rotate(-1.5deg);       /* slight tilt like a polaroid */
     transition: transform 160ms ease, box-shadow 160ms ease;
@@ -118,6 +149,7 @@ footer {
     height: auto;                     /* ensure polaroid height follows content */
     min-height: 0;
     overflow: visible;                /* rotated cards should not be clipped */
+    background-clip: padding-box;     /* keep background filling the padded area */
 }
 
 .polaroid:hover {
@@ -131,6 +163,7 @@ footer {
     height: auto;                      /* let image define height; avoid large empty frame */
     border-radius: 2px;
     background: #ddd;                  /* placeholder background if image has transparency */
+    box-sizing: border-box;            /* ensure padding/border don't make the image overflow the frame */
 }
 
 .polaroid img { object-fit: contain; }
@@ -451,3 +484,56 @@ section#intro h2 {
     -webkit-backface-visibility: hidden;
     will-change: transform, opacity;
 }
+
+/* Homepage-specific overrides (target body.home) */
+body.home .project-row .polaroid {
+    max-height: 98vh;      /* allow tall card up to 98% of viewport */
+    overflow: hidden;
+    display: block;
+}
+body.home .project-row .polaroid img {
+    width: 100%;
+    height: auto;
+    max-height: calc(98vh - 84px); /* reserve space for caption/frame */
+    object-fit: contain; /* show the whole photo inside the frame */
+    display: block;
+}
+body.home .project-row { align-items: flex-start; }
+body.home .project-row .side-polaroids { align-self: flex-start; }
+body.home main { padding-bottom: 320px; } /* give very large cards room so footer is pushed down */
+
+/* Portrait-style Signeer polaroid on homepage */
+body.home .Signeer.polaroid {
+    /* Exactly match Roos: same padding/frame and slight right nudge + rotation */
+    width: 320px !important;
+    max-width: 40vw;
+    aspect-ratio: 3 / 4; /* portrait */
+    padding: 12px 12px 14px; /* same as base .polaroid */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #fff8e6; /* warm polaroid frame */
+    border-radius: 4px;
+    border: 1px solid #eee;
+    transform: rotate(-0.8deg); /* match Roos rotation */
+    margin-left: 18px; /* same right-nudge effect as .roos-shift */
+}
+
+body.home .Signeer.polaroid img {
+    width: 100%;
+    height: auto;
+    max-height: calc(100% - 64px); /* leave room for caption and padding */
+    object-fit: contain !important; /* show the full image */
+    background: transparent !important; /* remove gray placeholder */
+    display: block;
+}
+
+body.home .Signeer.polaroid figcaption { margin-top: 10px; background: transparent; }
+
+@media (max-width: 700px) {
+    body.home .project-row .polaroid, body.home .project-row .polaroid img { max-height: none; }
+    body.home main { padding-bottom: 60px; }
+}
+
+/* Strong override for the homepage Signeer polaroid to prevent clipping */
+
