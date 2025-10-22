@@ -88,8 +88,10 @@ main {
     max-width: 500px;
     color: #333;
     font-family: sans-serif;
-    line-height: 1.5;
+    line-height: 1.7;
     margin-bottom: 1rem; /* give some space below the text block */
+    font-weight: 700;            /* bolder for readability */
+    font-size: 1rem;             /* predictable base size */
 }
 
 footer {
@@ -292,6 +294,39 @@ section::after {
         align-items: center;
         width: 100%;
     }
+}
+
+/* Mobile-first improvements: larger tap targets, stacked content, responsive nav */
+@media (max-width: 900px) {
+    header img { width: 96px; height: 160px; }
+    nav ul { flex-direction: row; gap: 12px; }
+    nav a { font-size: 0.95rem; }
+}
+
+@media (max-width: 700px) {
+    /* header and nav become compact */
+    header { padding: 14px; }
+    header img { width: 84px; height: 140px; }
+    nav ul { flex-direction: column; gap: 10px; align-items: center; }
+    nav { margin-top: 12px; }
+
+    /* main columns stack vertically */
+    .project-row { flex-direction: column; gap: 1rem; }
+    .project-text { width: 100%; max-width: none; padding: 16px; font-size: 1rem; }
+
+    /* polaroids become full-width cards with comfortable tap area */
+    .side-polaroids, .below-row, .below-polaroids { width: 100%; display: flex; flex-direction: column; align-items: center; }
+    .polaroid { max-width: 92%; margin: 0 0 1rem 0; padding: 6px; }
+    .polaroid img { width: 100%; height: auto; }
+
+    /* increase touch target for close button in lightbox */
+    .lightbox-close { width: 44px; height: 44px; font-size: 20px; }
+}
+
+/* Small improvements for larger phones and tablets */
+@media (max-width: 1024px) and (min-width: 701px) {
+    .project-row { gap: 0.8rem; }
+    .side-polaroids { width: 300px; }
 }
 
 /* Lightbox styles: keep in layout and animate opacity/scale for smooth transitions */
