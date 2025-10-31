@@ -270,6 +270,18 @@ section::after {
     margin-left: -40px; /* nudge the row left to sit closer to the text */
 }
 
+/* Variant to left-align below-row under the text column */
+.below-row.left {
+    justify-content: flex-start;
+    /* lift the row a bit so the card sits closer to the text column */
+    margin-top: -36px; /* increased lift */
+}
+
+/* Keep normal spacing on small screens where content stacks */
+@media (max-width: 700px) {
+    .below-row.left { margin-top: 1rem; }
+}
+
 /* Helper: when polaroids should appear below the text (full-width under content) */
 .below-polaroids {
     display: flex;
